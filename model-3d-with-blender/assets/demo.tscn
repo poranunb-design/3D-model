@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dipd2p2vs314e"]
+
+[ext_resource type="Script" uid="uid://ocic6xl0kskt" path="res://assets/demo.gd" id="1_amuei"]
+[ext_resource type="PackedScene" uid="uid://ci034i20fpukx" path="res://assets/Catwalk Walk.tscn" id="1_s02n5"]
+[ext_resource type="Texture2D" uid="uid://dwvqgj3hglqcc" path="res://assets/qwantani_night_puresky_4k.exr" id="3_e6to4"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_457xp"]
+panorama = ExtResource("3_e6to4")
+filter = false
+
+[sub_resource type="Sky" id="Sky_xfgwy"]
+sky_material = SubResource("PanoramaSkyMaterial_457xp")
+
+[sub_resource type="Environment" id="Environment_amuei"]
+background_mode = 2
+sky = SubResource("Sky_xfgwy")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e6to4"]
+size = Vector2(100, 100)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_amuei")
+
+[node name="Catwalk Walk" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.94229, 0, -2.04555)
+
+[node name="Catwalk Walk2" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.523035, 0, -2.04555)
+
+[node name="Catwalk Walk3" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95189, 0, -2.04555)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.891916, 7.16455, 18.5868)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.992658, 0.120951, 0, -0.120951, 0.992658, 1.207, 8.69341, -1.73976)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_amuei")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 120.0
+offset_bottom = 80.0
+text = "  
+   นางสาวปรนันท์ บุสดีวงค์
+   673380276-3
+   sec01"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_e6to4")
